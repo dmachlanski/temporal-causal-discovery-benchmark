@@ -34,7 +34,10 @@ metric_names = ['AUROC', 'F1', 'Recall', 'Precision']
 metric_funcs = [roc_auc_score, f1_score, recall_score, precision_score]
 
 for name, func in zip(metric_names, metric_funcs):
-    score = func(arr_true, arr_hat)
+    try:
+        score = func(arr_true, arr_hat)
+    except:
+        score = 'NaN'
     cols.append(name)
     vals.append(score)
 
