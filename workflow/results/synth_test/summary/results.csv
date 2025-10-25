@@ -1,0 +1,5 @@
+id,dataset,seed,subsample,repeat,AUROC,F1,Recall,Precision,runtime
+dummy,synth,indep,1,1,,,,,0.0001351833343505
+dummy,synth,indep,2,1,,,,,0.0001437664031982
+dummy,synth,x_cause_y,1,1,,,,,0.0001466274261474
+dummy,synth,x_cause_y,2,1,,,,,0.0001654624938964
