@@ -2,7 +2,8 @@ data:
   params:
     dataset: synth
     subsample: [1, 2]
-    seed: ['indep', 'x_cause_y']
+    seed:
+      id: ['indep', 'x_cause_y']
   options:
     path: ../data/synth
     scriptname: prepare_synth
