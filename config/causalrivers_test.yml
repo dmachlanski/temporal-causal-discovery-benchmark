@@ -1,0 +1,55 @@
+data:
+  params:
+    dataset: causalrivers
+    scenario: ['close_3', 'close_5', 'random_3', 'random_5']
+    resolution: ['1D', '18h', '12h', '10h', '8h', '6h', '5h', '4h', '3h', '2h', '1h', '45min', '30min', '15min']
+    subsample: [1]
+    seed:
+      start: 0
+      end: 9
+  options:
+    path: ../data/causalrivers
+    data_path: product/rivers_ts_east_germany.csv
+    scriptname: prepare_causalrivers
+    envname: causalrivers
+
+results:
+  name: causalrivers_run1
+  plots: False
+  metrics:
+    - F1
+    - AUROC
+  repeats: 1
+
+algorithms:
+  - id: dummy
+    script:
+      file: dummy/dummy.py
+      env: dodiscover
+  
+  - id: var
+    hparams:
+      lag: [1,2,3,4,5,10,20]
+      sum: ['max']
+    script:
+      file: var/var.py
+      env: ../envs/var.yml
+  
+  - id: dynotears
+    hparams:
+      lag: [1,2,3,4,5,10,20]
+      w_thres: [0.01]
+      lambda_w: [0.05]
+      lambda_a: [0.05]
+    script:
+      file: dynotears/main.py
+      env: ../envs/causalnex.yml
+  
+  - id: pcmci
+    hparams:
+      lag: [1,2,3,4,5,10,20]
+      alpha: [0.05]
+    script:
+      file: tigramite/main.py
+      param: pcmci
+      env: tigramite

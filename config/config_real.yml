@@ -1,0 +1,25 @@
+data:
+  params:
+    #dataset: fMRI
+    dataset: finance
+    seed:
+      #start: 1
+      #end : 3
+      #id: [1]
+      id: ['manyinputs', 'random-rels_20_1_3', 'random-rels_20_1A', 'random-rels_20_1B', 'random-rels_20_1C', 'random-rels_20_1D', 'random-rels_20_1E']
+  options:
+    #path: ../data/fMRI
+    path: ../data/FinanceCPT
+
+results:
+  name: real_2
+  plots: False
+  metrics:
+    - s_f1
+    - w_f1
+
+algorithms:
+  - id: dummy
+    script:
+      file: dummy/dummy.py
+      env: dodiscover

@@ -1,0 +1,60 @@
+data:
+  params:
+    dataset: causalchamber
+    lag: [1]
+    seed:
+      id: [
+          #'actuators_random_walk_1',
+          'actuators_random_walk_2',
+          'actuators_random_walk_3',
+          'actuators_random_walk_4',
+          'actuators_random_walk_5',
+          'actuators_random_walk_6',
+          'actuators_random_walk_7',
+          'actuators_random_walk_8',
+          'actuators_random_walk_9',
+          'actuators_random_walk_10',
+          'actuators_random_walk_11',
+          'actuators_random_walk_12',
+          'actuators_random_walk_13',
+          'actuators_random_walk_14',
+          'actuators_random_walk_15',
+          'actuators_random_walk_16',
+          'loads_hatch_mix_slow_run_1',
+          'loads_hatch_mix_slow_run_2',
+          'loads_hatch_mix_slow_run_3',
+          'loads_hatch_mix_slow_run_4',
+          'loads_hatch_mix_slow_run_5',
+          'loads_hatch_mix_fast_run_1',
+          'loads_hatch_mix_fast_run_2',
+          'loads_hatch_mix_fast_run_3',
+          'loads_hatch_mix_fast_run_4',
+          'loads_hatch_mix_fast_run_5'
+          #'regime_jumps_single',
+          #'regime_jumps_multi'
+          ]
+  options:
+    path: ../data/causalchamber/wt_walks_v1
+    scriptname: prepare_causalchamber
+
+results:
+  name: real_causalchamber_3
+  plots: True
+  metrics:
+    - s_f1
+  repeats: 1
+
+algorithms:
+  - id: dummy
+    script:
+      file: dummy/dummy.py
+      env: dodiscover
+
+  - id: pcmci+
+    hparams:
+      alpha: [0.05]
+      cond_test: ['par_corr']
+    script:
+      file: tigramite/main.py
+      param: pcmci_plus
+      env: tigramite
