@@ -1,0 +1,23 @@
+data:
+  params:
+    dataset: synth
+    subsample: [1, 2]
+    seed: ['indep', 'x_cause_y']
+  options:
+    path: ../data/synth
+    scriptname: prepare_synth
+    envname: crunch
+
+results:
+  name: synth_test
+  plots: False
+  metrics:
+    - F1
+    - AUROC
+  repeats: 1
+
+algorithms:
+  - id: dummy
+    script:
+      file: dummy/dummy.py
+      env: dodiscover

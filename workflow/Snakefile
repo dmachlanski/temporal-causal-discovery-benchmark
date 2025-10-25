@@ -1,6 +1,7 @@
 from snakemake.utils import Paramspace
 
-configfile: "../config/causalrivers_test.yml"
+#configfile: "../config/causalrivers_test.yml"
+configfile: "../config/synth_test.yml"
 include: "scripts/utils.py"
 
 data_paramspace = Paramspace(yaml2grid(config['data']['params']))
