@@ -10,7 +10,7 @@ data:
     envname: crunch
 
 results:
-  name: synth_test
+  name: synth_test_2
   plots: False
   metrics:
     - F1

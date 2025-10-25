@@ -12,6 +12,7 @@ data = data.drop(columns=0)
 # name columns
 data.columns = cols
 graph.columns = cols
+graph.index = cols
 
 # subsampling factor k
 k = int(snakemake.params['opt']['subsample'])
@@ -20,4 +21,4 @@ if k > 1:
 
 # Save processed data
 data.to_csv(snakemake.output['data'], index=False)
-graph.to_csv(snakemake.output['graph'], index=False)
+graph.to_csv(snakemake.output['graph'])
