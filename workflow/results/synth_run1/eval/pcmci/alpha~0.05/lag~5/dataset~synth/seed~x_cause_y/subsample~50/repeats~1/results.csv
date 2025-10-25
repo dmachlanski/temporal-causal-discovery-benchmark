@@ -1,0 +1,2 @@
+id,dataset,seed,subsample,alpha,lag,repeat,AUROC,F1,Recall,Precision,runtime
+pcmci,synth,x_cause_y,50,0.05,5,1,1.0,1.0,1.0,1.0,0.1745879650115966

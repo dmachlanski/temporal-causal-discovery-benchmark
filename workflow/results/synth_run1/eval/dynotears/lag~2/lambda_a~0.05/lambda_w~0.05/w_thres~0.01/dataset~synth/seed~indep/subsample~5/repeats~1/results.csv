@@ -1,0 +1,2 @@
+id,dataset,seed,subsample,lag,lambda_a,lambda_w,w_thres,repeat,AUROC,F1,Recall,Precision,runtime
+dynotears,synth,indep,5,2,0.05,0.05,0.01,1,0.7,0.4,1.0,0.25,0.1234681606292724

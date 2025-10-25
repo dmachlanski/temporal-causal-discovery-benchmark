@@ -1,0 +1,2 @@
+id,dataset,seed,subsample,repeat,AUROC,F1,Recall,Precision,runtime
+dummy,synth,x_cause_y,7,1,0.75,0.6666666666666666,0.5,1.0,0.0001971721649169
