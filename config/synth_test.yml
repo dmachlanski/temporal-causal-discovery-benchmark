@@ -56,4 +56,4 @@ algorithms:
       alpha: [0.05]
     script:
       file: lingam/main.py
-      env: ../envs/lingam.yml
+      env: lingam
