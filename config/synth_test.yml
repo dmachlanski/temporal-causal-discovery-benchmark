@@ -49,3 +49,11 @@ algorithms:
       file: tigramite/main.py
       param: pcmci
       env: tigramite
+
+  - id: varlingam
+    hparams:
+      lag: [1,2,3,4,5,10,20]
+      alpha: [0.05]
+    script:
+      file: lingam/main.py
+      env: ../envs/lingam.yml

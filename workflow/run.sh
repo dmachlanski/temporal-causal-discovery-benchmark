@@ -3,4 +3,4 @@
 
 # --unlock
 
-snakemake --cores 10 --snakefile Snakefile --sdm conda
+snakemake --cores 6 --snakefile Snakefile --sdm conda

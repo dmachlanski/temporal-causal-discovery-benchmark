@@ -6,7 +6,7 @@ import numpy as np
 from lingam import VARLiNGAM
 
 sys.path.append('../..')
-from graph_utils import save_result_temporal
+from graph_utils import temporal_to_adjmat
 
 def get_result(dag, names, split_by_sign=True):
     if split_by_sign:
@@ -32,7 +32,7 @@ def get_result(dag, names, split_by_sign=True):
 df = pd.read_csv(snakemake.input['data'])
 df_lag = pd.read_csv(snakemake.input['data_lag'])
 
-lag_max = int(len(df_lag.columns) / len(df.columns)) - 1
+lag_max = snakemake.params['alg_opt']['lag']
 
 model = VARLiNGAM(lags=lag_max, criterion='bic', prune=True)
 
@@ -50,6 +50,7 @@ adjmat = np.abs(am) > float(snakemake.params['alg_opt']['alpha'])
 
 result = get_result(adjmat, df.columns)
 
-save_result_temporal(result, df.columns, snakemake.output['pred'])
+adjmat = temporal_to_adjmat(result, df.columns)
+adjmat.to_csv(snakemake.output['pred'])
 
 pd.DataFrame([t_delta], columns=['runtime']).to_csv(snakemake.output['info'], index=False)
