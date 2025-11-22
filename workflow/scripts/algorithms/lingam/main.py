@@ -30,8 +30,6 @@ def get_result(dag, names, split_by_sign=True):
     
 
 df = pd.read_csv(snakemake.input['data'])
-df_lag = pd.read_csv(snakemake.input['data_lag'])
-
 lag_max = snakemake.params['alg_opt']['lag']
 
 model = VARLiNGAM(lags=lag_max, criterion='bic', prune=True)
